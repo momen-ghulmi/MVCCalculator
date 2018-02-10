@@ -6,7 +6,7 @@ package com.techpalace.calculator.model;
 public class calcModel {
     private static int  res;
 
-    public int getRes() {
+    public static int getRes() {
         return res;
     }
 
