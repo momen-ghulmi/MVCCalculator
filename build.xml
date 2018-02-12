@@ -1,5 +1,16 @@
 <project>
-
+    <path id="external.classpath">
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+    </path>
+    <classpath>
+        <path refid="external.classpath" />
+    </classpath>
+    <path id="external.classpath2">
+        <pathelement location="lib/junit-4.12.jar"/>
+    </path>
+    <classpath>
+        <path refid="external.classpath2" />
+    </classpath>
     <target name="clean">
         <delete dir="build"/>
     </target>
@@ -17,7 +28,6 @@
             </manifest>
         </jar>
     </target>
-
 
 
 </project>
