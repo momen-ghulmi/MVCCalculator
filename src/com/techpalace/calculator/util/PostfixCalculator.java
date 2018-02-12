@@ -40,21 +40,38 @@ public class PostfixCalculator {
         if (nums.size() < 2)
             throw new IllegalArgumentException("Input expression: " +
                     expression + " invalid");
-        double op2 = nums.pop();
-        double op1 = nums.pop();
         char op = n.charAt(0);
+        double op1;
+        double op2;
+
         switch (op) {
             case '+':
+                op2 = nums.pop();
+                op1 = nums.pop();
                 nums.push(op1 + op2);
                 break;
             case '-':
+                op2 = nums.pop();
+                op1 = nums.pop();
                 nums.push(op1 - op2);
                 break;
             case '*':
+                op2 = nums.pop();
+                op1 = nums.pop();
                 nums.push(op1 * op2);
                 break;
             case '/':
+                op2 = nums.pop();
+                op1 = nums.pop();
+                if (op2 == 0){
+                    throw new ArithmeticException();
+                }
                 nums.push(op1 / op2);
+                break;
+            case '%':
+                op2 = nums.pop();
+                op1 = nums.pop();
+                nums.push((double)((int)op1%(int)op2));
                 break;
             default:
                 System.out.println("What is this? " + op);
@@ -92,4 +109,20 @@ public class PostfixCalculator {
 //    }
 }
 
-
+class Typetester {
+    static String  printType(byte x) {
+        return " is an byte";
+    }
+    static String printType(int x) {
+        return " is an int";
+    }
+    static String printType(float x) {
+        return " is an float";
+    }
+    static String printType(double x) {
+        return " is an double";
+    }
+    static String printType(char x) {
+        return " is an char";
+    }
+}

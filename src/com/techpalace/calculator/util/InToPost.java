@@ -24,6 +24,7 @@ public class InToPost {
                     break;
                 case '*':
                 case '/':
+                case '%':
                     gotOper(ch, 2);
                     break;
                 case '(':

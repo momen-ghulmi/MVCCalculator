@@ -30,8 +30,6 @@ public class CalcController implements ActionListener {
         }
         else if(b == CalculatorView.equal){
             String equ = view.getText();
-            int x,y;
-            char op;
             InToPost trans = new InToPost(view.getText());
             String post = trans.doTrans();
             PostfixCalculator calc = new PostfixCalculator();
@@ -40,15 +38,21 @@ public class CalcController implements ActionListener {
             calcModel.setRes(((int) calc.getResult()));
 
             view.setText(view.getText() + " " + "=" + " " + calcModel.getRes());
+            calcModel.setComputedFlag(true);
             //Logger.getAnonymousLogger().info(calc.getResult() + "");
             //Logger.getAnonymousLogger().info(post);
         }
         else {
-            String[] oper = {"+", "-", "*", "/"};
+            String[] oper = {"+", "-", "*", "/","%"};
             ArrayList<String> operators = new ArrayList<>(Arrays.asList(oper));
+            if(calcModel.isComputedFlag()){
+                view.setText(calcModel.getRes() + "");
+                calcModel.setComputedFlag(false);
+            }
             if (operators.contains(b.getText())) {
                 view.setText(view.getText() + " " + b.getText() + " ");
-            } else {
+            }
+            else {
                 view.setText(view.getText() + "" + b.getText());
             }
         }
