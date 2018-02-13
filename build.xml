@@ -29,12 +29,12 @@
         <junit fork="yes" forkmode="perBatch">
 
             <classpath>
-                <pathelement path="./out/production/com/techpalace/calculator/" />
-                <pathelement path="./out/production/Calc/Test" />
+                <pathelement path="./build/classes/com/techpalace/calculator/" />
+                <pathelement path="./build/classes/Calc/Test" />
             </classpath>
 
             <batchtest todir="./reports">
-                <fileset dir="./out/production/Calc/Test">
+                <fileset dir="./build/classes/Calc/Test">
                     <include name="**/*Test.class" />
                 </fileset>
             </batchtest>
