@@ -36,7 +36,7 @@
             </classpath>
             <!--batch-->
             <batchtest todir="./reports">
-                <fileset dir="./build/classes/Calc/Test">
+                <fileset dir="./build/Test">
                     <include name="**/*Test.class" />
                 </fileset>
             </batchtest>
