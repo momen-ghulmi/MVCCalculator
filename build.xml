@@ -24,21 +24,18 @@
             </manifest>
         </jar>
     </target>
-    <target name="test" depends="com.techpalace.calculator, Test">
+    <target name="test">
         <mkdir dir="./reports" />
-        <junit haltonfailure="no" printsummary="true">
+        <junit fork="yes" forkmode="perBatch">
+
             <classpath>
-                <path refid="test.run.classpath" />
-                <pathelement location = "src/" />
+                <pathelement path="./out/production/com/techpalace/calculator/" />
+                <pathelement path="./out/production/Calc/Test" />
             </classpath>
-            <!-- add to see errors on console while running junit tests.
-            <formatter type="brief" usefile="false" />
-            -->
-            <formatter type="xml"/>
-            <batchtest fork="yes" todir="./reports">
-                <fileset dir="./src/Test">
-                    <include name="**/*Test*.class"/>
-                    <exclude name="**/*$*.class"/>
+
+            <batchtest todir="./reports">
+                <fileset dir="./out/production/Calc/Test">
+                    <include name="**/*Test.class" />
                 </fileset>
             </batchtest>
         </junit>
