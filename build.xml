@@ -31,7 +31,8 @@
             <classpath>
                 <pathelement path="./build/classes/com/techpalace/calculator/" />
                 <pathelement path="./build/classes/Calc/Test" />
-                <pathelement path="./lib/*.jar"/>
+                <pathelement path="./lib/junit-4.12.jar"/>
+                <pathelement path="./lib/hamcrest-core-1.3.jar"/>
             </classpath>
             <!--batch-->
             <batchtest todir="./reports">
