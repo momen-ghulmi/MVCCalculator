@@ -32,7 +32,7 @@
                 <pathelement path="./build/classes/com/techpalace/calculator/" />
                 <pathelement path="./build/classes/Calc/Test" />
             </classpath>
-
+            <!--batch-->
             <batchtest todir="./reports">
                 <fileset dir="./build/classes/Calc/Test">
                     <include name="**/*Test.class" />
