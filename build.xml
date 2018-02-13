@@ -24,7 +24,7 @@
             </manifest>
         </jar>
     </target>
-    <target name="test.java" depends="build.java.src, build.java.test">
+    <target name="test" depends="com.techpalace.calculator, Test">
         <mkdir dir="./reports" />
         <junit haltonfailure="no" printsummary="true">
             <classpath>
