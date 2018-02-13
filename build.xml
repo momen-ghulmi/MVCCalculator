@@ -9,7 +9,7 @@
 
     <target name="compile">
         <mkdir dir="build/classes"/>
-        <javac srcdir="src" destdir="build/classes">
+        <javac srcdir="src" destdir="classes">
             <classpath>
                 <path refid="external.classpath" />
             </classpath>
@@ -20,10 +20,28 @@
         <mkdir dir="build/jar"/>
         <jar destfile="build/jar/MVCCalculator.jar" basedir="build/classes">
             <manifest>
-                <attribute name="Main-Class" value="com.techpalace.calculator"/>
+                <attribute name="com.techpalace.calculator.Main-Class" value="com.techpalace.calculator.Main"/>
             </manifest>
         </jar>
     </target>
-
+    <target name="test.java" depends="build.java.src, build.java.test">
+        <mkdir dir="./reports" />
+        <junit haltonfailure="no" printsummary="true">
+            <classpath>
+                <path refid="test.run.classpath" />
+                <pathelement location = "src/" />
+            </classpath>
+            <!-- add to see errors on console while running junit tests.
+            <formatter type="brief" usefile="false" />
+            -->
+            <formatter type="xml"/>
+            <batchtest fork="yes" todir="./reports">
+                <fileset dir="./src/Test">
+                    <include name="**/*Test*.class"/>
+                    <exclude name="**/*$*.class"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
 
 </project>
