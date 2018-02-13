@@ -31,6 +31,7 @@
             <classpath>
                 <pathelement path="./build/classes/com/techpalace/calculator/" />
                 <pathelement path="./build/classes/Calc/Test" />
+                <pathelement path="./lib/*.jar"/>
             </classpath>
             <!--batch-->
             <batchtest todir="./reports">
