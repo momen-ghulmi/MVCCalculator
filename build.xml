@@ -24,7 +24,7 @@
             </manifest>
         </jar>
     </target>
-    <target name="test">
+    <target name="test" depends="compile" >
         <mkdir dir="./reports" />
         <junit fork="yes" forkmode="perBatch">
 
